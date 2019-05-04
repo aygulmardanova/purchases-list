@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Purchases List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Purchases List <span id="purchases-sum" class="badge badge-success">0</span></h1>
+            <div class="row mt-5">
+                <div class="input-group">
+                    <input id="name" style="width: 30%;" type="text" class="form-control" placeholder="Name">
+                    <input id="category" style="width: 40%;" type="text" class="form-control" placeholder="Category">
+                    <input id="price" style="width: 15%;" type="text" class="form-control" placeholder="Price">
+                    <div class="input-group-append" style="width: 15%;">
+                        <button id="add-btn" class="btn btn-block btn-success">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <table id="purchases" class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width: 30%;">Name</th>
+                        <th scope="col" style="width: 40%;">Category</th>
+                        <th scope="col" style="width: 15%;">Price</th>
+                        <th scope="col" style="width: 15%;"></th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="row mt-3">
+                <table id="most-expensive-p-table" class="table table-borderless">
+                    <caption style="caption-side: top; text-align: left;">Most expensive purchase:</caption>
+                    <tr id="most-expensive-p">
+                        <td style="width: 30%;"></td>
+                        <td style="width: 40%;"></td>
+                        <td style="width: 30%;"></td>
+                    </tr>
+                </table>
+
+                <table id="most-expensive-c-table" class="table table-borderless">
+                    <caption style="caption-side: top; text-align: left;">Most expensive category:</caption>
+                    <tr id="most-expensive-c">
+                        <td style="width: 70%;"></td>
+                        <td style="width: 30%;"></td>
+                    </tr>
+                </table>
+
+                <table id="stats" class="table table-borderless">
+                    <caption style="caption-side: top; text-align: left;">Stats:</caption>
+                    <tr id="stats-total">
+                        <td style="width: 70%;">Total</td>
+                        <td style="width: 30%;"></td>
+                    </tr>
+                    <tr id="stats-count">
+                        <td style="width: 70%;">Count</td>
+                        <td style="width: 30%;"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/app.js" type="module"></script>
+</body>
+</html>
