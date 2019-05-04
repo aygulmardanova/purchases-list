@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "live-server src",
-    "test": "jest"
+    "serve": "live-server src"
   },
   "babel": {
     "presets": [
