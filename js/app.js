@@ -31,7 +31,7 @@ let categories = new Map();
 addEl.addEventListener('click', getAddElEventListener());
 addEl.addEventListener('click', getUpdateStatisticsFunction());
 
-export function getAddElEventListener() {
+function getAddElEventListener() {
     return () => {
         const name = inputNameEl.value;
         const category = inputCategoryEl.value;
@@ -74,7 +74,7 @@ export function getAddElEventListener() {
     };
 }
 
-export function getRemoveElEventListener(trEl) {
+function getRemoveElEventListener(trEl) {
     return () => {
         const purchase =
             purchases.find(p =>
@@ -93,7 +93,7 @@ export function getRemoveElEventListener(trEl) {
     };
 }
 
-export function getUpdateStatisticsFunction() {
+function getUpdateStatisticsFunction() {
     return () => {
         updateMostExpensivePurchaseInfo();
         updateMostExpensiveCategoryInfo();
@@ -101,7 +101,7 @@ export function getUpdateStatisticsFunction() {
     };
 }
 
-export function updateMostExpensivePurchaseInfo() {
+function updateMostExpensivePurchaseInfo() {
     if (purchases.length === 0) {
         mostExpensivePurchaseEl.cells[indOfPurchaseNameCell].textContent = '';
         mostExpensivePurchaseEl.cells[indOfPurchaseCategoryCell].textContent = '';
@@ -119,7 +119,7 @@ export function updateMostExpensivePurchaseInfo() {
     mostExpensivePurchaseEl.cells[indOfPurchasePriceCell].textContent = maxPurchase.price;
 }
 
-export function updateMostExpensiveCategoryInfo() {
+function updateMostExpensiveCategoryInfo() {
     if (purchases.length === 0) {
         mostExpensiveCategoryEl.cells[indOfCategoryNameCell].textContent = '';
         mostExpensiveCategoryEl.cells[indOfCategoryPriceSumCell].textContent = '';
@@ -135,7 +135,7 @@ export function updateMostExpensiveCategoryInfo() {
     mostExpensiveCategoryEl.cells[indOfCategoryPriceSumCell].textContent = maxCategory[1];
 }
 
-export function updateStatsInfo() {
+function updateStatsInfo() {
     statsTotalEl.cells[1].textContent = sum;
     statsCountEl.cells[1].textContent = purchases.length;
 }
