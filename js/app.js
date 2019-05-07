@@ -5,6 +5,7 @@ const inputCategoryEl = document.getElementById('category');
 const inputPriceEl = document.getElementById('price');
 const addEl = document.getElementById('add-btn');
 const tableEl = document.getElementById('purchases');
+const noPurchasesMsgRowEl = document.getElementById('no-purchases-msg-row');
 const sumEl = document.getElementById('purchases-sum');
 
 const mostExpensivePurchaseEl = document.getElementById('most-expensive-purchase');
@@ -69,6 +70,8 @@ function getAddElEventListener() {
         sum += price;
         sumEl.textContent = sum;
 
+        noPurchasesMsgRowEl.className = 'non-visible-element';
+
         [inputNameEl, inputCategoryEl, inputPriceEl]
             .forEach(el => el.value = '');
     };
@@ -90,6 +93,8 @@ function getRemoveElEventListener(trEl) {
 
         purchases.splice(purchases.indexOf(purchase), 1);
         tableEl.deleteRow(trEl.rowIndex);
+
+        noPurchasesMsgRowEl.className = '';
     };
 }
 
