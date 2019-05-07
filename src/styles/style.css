@@ -2,3 +2,11 @@ caption {
     caption-side: top;
     text-align: left;
 }
+
+.no-purchases-msg {
+    text-align: center;
+}
+
+.non-visible-element {
+    display: none;
+}
