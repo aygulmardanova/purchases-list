@@ -7,8 +7,8 @@ const addEl = document.getElementById('add-btn');
 const tableEl = document.getElementById('purchases');
 const sumEl = document.getElementById('purchases-sum');
 
-const mostExpensivePEl = document.getElementById('most-expensive-p');
-const mostExpensiveCEl = document.getElementById('most-expensive-c');
+const mostExpensivePurchaseEl = document.getElementById('most-expensive-purchase');
+const mostExpensiveCategoryEl = document.getElementById('most-expensive-category');
 const statsTotalEl = document.getElementById('stats-total');
 const statsCountEl = document.getElementById('stats-count');
 
@@ -100,36 +100,36 @@ export function getUpdateStatisticsFunction() {
 
 export function updateMostExpensivePurchaseInfo() {
     if (purchases.length === 0) {
-        mostExpensivePEl.cells[indOfPurchaseNameCell].textContent = '';
-        mostExpensivePEl.cells[indOfPurchaseCategoryCell].textContent = '';
-        mostExpensivePEl.cells[indOfPurchasePriceCell].textContent = '';
+        mostExpensivePurchaseEl.cells[indOfPurchaseNameCell].textContent = '';
+        mostExpensivePurchaseEl.cells[indOfPurchaseCategoryCell].textContent = '';
+        mostExpensivePurchaseEl.cells[indOfPurchasePriceCell].textContent = '';
         return;
     }
 
-    const maxP = purchases
+    const maxPurchase = purchases
         .reduce((p1, p2) =>
             (p1.price > p2.price)
                 ? p1
                 : p2, 0);
-    mostExpensivePEl.cells[indOfPurchaseNameCell].textContent = maxP.name;
-    mostExpensivePEl.cells[indOfPurchaseCategoryCell].textContent = maxP.category;
-    mostExpensivePEl.cells[indOfPurchasePriceCell].textContent = maxP.price;
+    mostExpensivePurchaseEl.cells[indOfPurchaseNameCell].textContent = maxPurchase.name;
+    mostExpensivePurchaseEl.cells[indOfPurchaseCategoryCell].textContent = maxPurchase.category;
+    mostExpensivePurchaseEl.cells[indOfPurchasePriceCell].textContent = maxPurchase.price;
 }
 
 export function updateMostExpensiveCategoryInfo() {
     if (purchases.length === 0) {
-        mostExpensiveCEl.cells[indOfCategoryNameCell].textContent = '';
-        mostExpensiveCEl.cells[indOfCategoryPriceSumCell].textContent = '';
+        mostExpensiveCategoryEl.cells[indOfCategoryNameCell].textContent = '';
+        mostExpensiveCategoryEl.cells[indOfCategoryPriceSumCell].textContent = '';
         return;
     }
 
-    const maxC = [...categories.entries()]
+    const maxCategory = [...categories.entries()]
         .reduce((maxSum, sum) =>
             sum[1] > maxSum[1]
                 ? sum
                 : maxSum);
-    mostExpensiveCEl.cells[indOfCategoryNameCell].textContent = maxC[0];
-    mostExpensiveCEl.cells[indOfCategoryPriceSumCell].textContent = maxC[1];
+    mostExpensiveCategoryEl.cells[indOfCategoryNameCell].textContent = maxCategory[0];
+    mostExpensiveCategoryEl.cells[indOfCategoryPriceSumCell].textContent = maxCategory[1];
 }
 
 export function updateStatsInfo() {
