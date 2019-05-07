@@ -17,6 +17,13 @@ const indOfCategoryCell = 1;
 const indOfPriceCell = 2;
 const indOfRemoveBtnCell = 3;
 
+const indOfPurchaseNameCell = 0;
+const indOfPurchaseCategoryCell = 1;
+const indOfPurchasePriceCell = 2;
+
+const indOfCategoryNameCell = 0;
+const indOfCategoryPriceSumCell = 1;
+
 let sum = 0;
 let purchases = [];
 let categories = new Map();
@@ -93,9 +100,9 @@ export function getUpdateStatisticsFunction() {
 
 export function updateMostExpensivePurchaseInfo() {
     if (purchases.length === 0) {
-        mostExpensivePEl.cells[0].textContent = '';
-        mostExpensivePEl.cells[1].textContent = '';
-        mostExpensivePEl.cells[2].textContent = '';
+        mostExpensivePEl.cells[indOfPurchaseNameCell].textContent = '';
+        mostExpensivePEl.cells[indOfPurchaseCategoryCell].textContent = '';
+        mostExpensivePEl.cells[indOfPurchasePriceCell].textContent = '';
         return;
     }
 
@@ -104,16 +111,15 @@ export function updateMostExpensivePurchaseInfo() {
             (p1.price > p2.price)
                 ? p1
                 : p2, 0);
-    mostExpensivePEl.cells[0].textContent = maxP.name;
-    mostExpensivePEl.cells[1].textContent = maxP.category;
-    mostExpensivePEl.cells[2].textContent = maxP.price;
+    mostExpensivePEl.cells[indOfPurchaseNameCell].textContent = maxP.name;
+    mostExpensivePEl.cells[indOfPurchaseCategoryCell].textContent = maxP.category;
+    mostExpensivePEl.cells[indOfPurchasePriceCell].textContent = maxP.price;
 }
 
 export function updateMostExpensiveCategoryInfo() {
     if (purchases.length === 0) {
-        mostExpensiveCEl.cells[0].textContent = '';
-        mostExpensiveCEl.cells[1].textContent = '';
-        mostExpensiveCEl.cells[2].textContent = '';
+        mostExpensiveCEl.cells[indOfCategoryNameCell].textContent = '';
+        mostExpensiveCEl.cells[indOfCategoryPriceSumCell].textContent = '';
         return;
     }
 
@@ -122,8 +128,8 @@ export function updateMostExpensiveCategoryInfo() {
             sum[1] > maxSum[1]
                 ? sum
                 : maxSum);
-    mostExpensiveCEl.cells[0].textContent = maxC[0];
-    mostExpensiveCEl.cells[1].textContent = maxC[1];
+    mostExpensiveCEl.cells[indOfCategoryNameCell].textContent = maxC[0];
+    mostExpensiveCEl.cells[indOfCategoryPriceSumCell].textContent = maxC[1];
 }
 
 export function updateStatsInfo() {
