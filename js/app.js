@@ -39,10 +39,12 @@ export function getAddElEventListener() {
 
         const purchase = new Purchase(name, category, price);
         purchases.push(purchase);
-        if (categories.get(purchase.category) != null)
+
+        if (categories.get(purchase.category) != null) {
             categories.set(purchase.category, categories.get(purchase.category) + purchase.price);
-        else
+        } else {
             categories.set(purchase.category, purchase.price);
+        }
 
         const trEl = tableEl.insertRow();
 
@@ -80,10 +82,11 @@ export function getRemoveElEventListener(trEl) {
         sum -= Number(purchase.price);
         sumEl.textContent = sum;
 
-        if (categories.get(purchase.category) != null)
+        if (categories.get(purchase.category) != null) {
             categories.set(purchase.category, categories.get(purchase.category) - purchase.price);
-        else
+        } else {
             categories.remove(purchase.category);
+        }
 
         purchases.splice(purchases.indexOf(purchase), 1);
         tableEl.deleteRow(trEl.rowIndex);
